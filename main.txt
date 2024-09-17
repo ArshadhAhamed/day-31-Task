@@ -1,0 +1,52 @@
+IMDB Design a DB for IMDB 
+1. Movie should have multiple media(Video or Image) 
+2. Movie can belongs to multiple Genre 
+3. Movie can have multiple reviews and Review can belongs to a user
+4. Artist can have multiple skills
+5. Artist can perform multiple role in a single film 
+
+Tables:
+1. Movie Table:
+         id (PK), title, release_date, description
+
+2.Media Table 
+       id (PK), movie_id (FK), media_type (image/video), media_url.
+
+3.Genre Table:
+       id (PK), name.
+
+4.Movie_Genre Table 
+      movie_id (FK), genre_id (FK).
+
+5.Review Table 
+       id (PK), movie_id (FK), user_id (FK), rating, review_text, created_at.
+
+
+6.User Table 
+       id (PK), username, email, password, etc.
+
+7.Artist Table:
+      id (PK), name, birthdate, bio, etc.
+
+8.Skills Table :
+       id (PK), skill_name.
+
+9.Artist_Skills Table 
+    artist_id (FK), skill_id (FK).
+
+10.Movie_Artist_Role Table
+    id (PK), movie_id (FK), artist_id (FK), role.
+
+ER Diagram Structure:
+
+Movies ⬌ Media: One-to-many (movie can have many media).
+
+Movies ⬌ Genres: Many-to-many (a movie can belong to multiple genres).
+
+Movies ⬌ Reviews: One-to-many (a movie can have many reviews).
+
+Reviews ⬌ Users: Many-to-one (many reviews belong to one user).
+
+Artists ⬌ Skills: Many-to-many (artists can have multiple skills).
+
+Movies ⬌ Artists ⬌ Roles: Many-to-many (artists can perform multiple roles in a single movie).
